@@ -1,0 +1,9 @@
+Git Commands!
+
+clone - takes the repository from your github and copies it onto your computer
+
+add - tracks a file, to be committed at a later time
+
+commit - officialize your changes
+
+push - make all of your local changes public

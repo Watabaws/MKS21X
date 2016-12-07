@@ -1,0 +1,31 @@
+public class Barcode implements Comparable<Barcode>{
+    private String _zip; 
+    private int _checkDigit;
+
+
+    public Barcode(String zip){
+	try{
+	    _zip = zip;
+	    _checkDigit = checkSum()
+	}
+	catch(RuntimeException e){
+	    System.out.println("Make sure you are inputting a 5 digit string of numbers!")
+		}
+    }
+
+    public Barcode clone(){
+	return new Barcode(_zip);
+}
+
+    public int checkSum(){
+	int cSum = 0;
+	for(i : _zip){
+	    cSum += Integer.parseInt(i);
+	}
+	return cSum % 10;
+    }
+}
+
+
+
+	

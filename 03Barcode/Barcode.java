@@ -1,14 +1,19 @@
 public class Barcode implements Comparable<Barcode>{
     private String _zip;
+    private static final String[] b4rz = {":::||", "::|:|", "::||:", ":|::|", ":|:|:", ":||::", "|:::|", "|::|:", "|:|::", "||:::"};
 
     public Barcode(String zip){
+        IllegalArgumentException oops = new IllegalArgumentException("Make sure you are inputting a 5 digit string of numbers!");
+        if(zip.length() != 5){
+            throw oops;
+        }
     	try{
     	    _zip = zip;
-            _zip = zip + checkSum(zip);
         }
-        finally{
-            throw new IllegalArgumentException("Make sure you are inputting a 5 digit string of numbers!");
+        catch(IllegalArgumentException e){
+            throw oops;
         }
+
     }
 
     public String toString(){
@@ -25,6 +30,7 @@ public class Barcode implements Comparable<Barcode>{
 
     public static String makeCode(String zip){
     	String bars = "|";
+        zip = zip + checkSum(zip);
     	for(int i = 0; i < zip.length(); i++){
     	    bars += intToBar(zip.substring(i, i+1));
     	}
@@ -33,21 +39,26 @@ public class Barcode implements Comparable<Barcode>{
     	return bars;
     }
 
+    private boolean checkCode(String code){
+        if(code.length() < 32){
+            return false;
+        }
+        if(code.charAt(0) != '|' || code.charAt(code.length() - 1) != '|'){
+            return false;
+        }
+        for(int i = 0; i < code.length(); i++){
+            char letta = code.charAt(i);
+            if(letta != ':' || letta != '|'){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
     private static String intToBar(String i){
     	int l = Integer.parseInt(i);
-    	switch(l){
-    	    case 1: return ":::||";
-    	    case 2: return "::|:|";
-    	    case 3: return "::||:";
-    	    case 4: return ":|::|";
-    	    case 5: return ":|:|:";
-    	    case 6: return ":||::";
-    	    case 7: return "|:::|";
-    	    case 8: return "|::|:";
-    	    case 9: return "|:|::";
-    	    case 0: return "||:::";
-            default: throw new IllegalArgumentException("Please make sure your zip is made up of integers");
-    	}
+    	return b4rz[l];
     }
 
     public int compareTo(Barcode other){

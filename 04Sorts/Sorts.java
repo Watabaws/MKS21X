@@ -20,6 +20,10 @@ public class Sorts{
 	}
     }
 
+     /**Selection sort of an int array. 
+  *Upon completion, the elements of the array will be in increasing order.
+  *@param data  the elements to be sorted.
+  */
     public static void main(String[] aragasdrtawelkjhaselkgasdklasdghkl){
 	int[] test1 = {8, 5, 6, 2, 7, 3, 1, 9, 0, 4};
 	selectionSort(test1);

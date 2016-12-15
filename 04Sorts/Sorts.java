@@ -39,10 +39,27 @@ public class Sorts{
 	}
     }
 
+    public static void bubbleSort(int[] data){
+	int tempUpr, ooper, loowr;
+	boolean iDunNuffin = true;
+	for(int i = 0; i < data.length-1 && iDunNuffin; i++){
+	    ooper = data[i+1];
+	    loowr = data[i];
+	    if(loowr > ooper){
+		tempUpr = ooper;
+		data[i+1] = loowr;
+		data[i] = tempUpr;
+	    }
+	    else{
+		iDunNuffin = false;
+	    }
+	    System.out.println(Arrays.toString(data));
+	}
+    }
      
     public static void main(String[] aragasdrtawelkjhaselkgasdklasdghkl){
 	int[] test1 = {8, 5, 6, 2, 7, 3, 1, 9, 0, 4};
-	insertionSort(test1);
+	bubbleSort(test1);
 
 	for(int i: test1){
 	    System.out.println(test1[i]);

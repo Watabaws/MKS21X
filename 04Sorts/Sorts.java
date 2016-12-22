@@ -1,11 +1,11 @@
 import java.util.Arrays;
 public class Sorts{
-    
+
     public static String name(){
 	return "10.Abbas.Adam";
     }
 
-    /**Selection sort of an int array. 
+    /**Selection sort of an int array.
   *Upon completion, the elements of the array will be in increasing order.
   *@param data  the elements to be sorted.
   */
@@ -26,45 +26,47 @@ public class Sorts{
     }
 
     public static void insertionSort(int[] data){
-	int bNMoved, cTDwn;
-	for(int i = 1; i < data.length; i++){
-	    bNMoved = data[i];
-	    cTDwn = i-1;
-	    while(cTDwn >= 0 && bNMoved < data[cTDwn]){
-		data[cTDwn + 1] = data[cTDwn];
-		cTDwn--;
-		System.out.println(Arrays.toString(data));
-	    }
-	    data[cTDwn+1] = bNMoved;
-	}
+    	int bNMoved, cTDwn;
+    	for(int i = 1; i < data.length; i++){
+    	    bNMoved = data[i];
+    	    cTDwn = i-1;
+            while(cTDwn >= 0 && bNMoved < data[cTDwn]){
+        		data[cTDwn + 1] = data[cTDwn];
+        		cTDwn--;
+        		System.out.println(Arrays.toString(data));
+    	    }
+    	    data[cTDwn+1] = bNMoved;
+    	}
     }
 
     public static void bubbleSort(int[] data){
-	int tempUpr, ooper, loowr;
-	boolean iDunNuffin = true;
-	for(int i = 0; i < data.length-1 && iDunNuffin; i++){
-	    ooper = data[i+1];
-	    loowr = data[i];
-	    if(loowr > ooper){
-		tempUpr = ooper;
-		data[i+1] = loowr;
-		data[i] = tempUpr;
-	    }
-	    else{
-		iDunNuffin = false;
-	    }
-	    System.out.println(Arrays.toString(data));
-	}
+    	int upB = data.length-1;
+        int tempUp;
+    	boolean swapped = true;
+    	while(swapped){
+            swapped = false;
+            for(int i = 0; i < upB; i++){
+                if(data[i] > data[i+1]){
+                    tempUp = data[i+1];
+                    data[i+1] = data[i];
+                    data[i] = tempUp;
+                    swapped = true;
+                }
+                System.out.println(Arrays.toString(data));
+            }
+            upB--;
+
+    	}
     }
-     
+
     public static void main(String[] aragasdrtawelkjhaselkgasdklasdghkl){
-	int[] test1 = {8, 5, 6, 2, 7, 3, 1, 9, 0, 4};
-	bubbleSort(test1);
+    	int[] test1 = {8, 5, 6, 2, 7, 3, 1, 9, 0, 4};
+    	bubbleSort(test1);
 
-	for(int i: test1){
-	    System.out.println(test1[i]);
+    	for(int i: test1){
+    	    System.out.println(test1[i]);
 
-	}   
+    	}
     }
 
 

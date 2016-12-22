@@ -61,11 +61,26 @@ public class Sorts{
 
     public static void main(String[] aragasdrtawelkjhaselkgasdklasdghkl){
     	int[] test1 = {8, 5, 6, 2, 7, 3, 1, 9, 0, 4};
+	int[] test0 = {};
+	int[] test2 = {-5, 0, 1, 78, -3, 2, 55};
     	bubbleSort(test1);
+	bubbleSort(test0);
+        bubbleSort(test2);
 
-    	for(int i: test1){
-    	    System.out.println(test1[i]);
 
+	System.out.println("zero");
+    	for(int i: test0){
+    	    System.out.println(i);
+    	}
+
+	System.out.println("one");
+	for(int i: test1){
+    	    System.out.println(i);
+    	}
+
+	System.out.println("two");       
+	for(int i: test2){
+    	    System.out.println(i);
     	}
     }
 
